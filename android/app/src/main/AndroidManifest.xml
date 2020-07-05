@@ -9,6 +9,7 @@
     <!-- ADD FOR QR-CODE 26.04.2020 -->
     <!-- ============================================================= -->        
     <uses-permission android:name="android.permission.CAMERA" /> 
+    <uses-permission android:name="android.permission.FLASHLIGHT" />      
     <!-- *******************************************************************************  -->
     <!-- ADD FOR 7 JULY 2020, Multi_image_picker” flutter  -->
     <!-- *******************************************************************************  -->    

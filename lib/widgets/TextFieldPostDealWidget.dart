@@ -1,12 +1,14 @@
 //==========================================================================
 // IMPORT MATERIAL
 //==========================================================================
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 //==========================================================================
 // MAIN CLASS
 //==========================================================================
-class TextFieldWidget extends StatelessWidget {
+class TextFieldPostDealWidget extends StatelessWidget {
 //==========================================================================
 // CONSTRUCTURE
 //==========================================================================
@@ -19,7 +21,7 @@ class TextFieldWidget extends StatelessWidget {
 //==========================================================================
 // GET/SET
 //==========================================================================
-  TextFieldWidget({
+  TextFieldPostDealWidget({
     this.text = 'Name',
     this.icon,
     this.textInputType = TextInputType.text,
@@ -34,18 +36,17 @@ class TextFieldWidget extends StatelessWidget {
 //==========================================================================
   @override
   Widget build(BuildContext context) {
-   const double textFieldPadding = 4;     
     return Padding(
-      padding: const EdgeInsets.all(textFieldPadding),
+      padding: const EdgeInsets.only(top: 4,bottom: 4),
       child: TextFormField(
+        style: TextStyle(fontSize: 12),
         obscureText: obscureText,
         keyboardType: textInputType,
+        minLines: 1,
+        maxLines: 3,
         decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(4),
-              ),
-            ),
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+            border: OutlineInputBorder(borderRadius: const BorderRadius.all(Radius.circular(0),),),
             filled: true,
             hintStyle: TextStyle(color: Colors.grey[800]),
             hintText: text,

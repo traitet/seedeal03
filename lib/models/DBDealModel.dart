@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 //===============================================================
 // CLASS DOC MODEL
 //===============================================================
-class DealModel {
+class DBDealModel {
   //=============================================================
   // 1) PROPERTY
   //=============================================================
@@ -15,20 +15,26 @@ class DealModel {
   final String createdBy;
   final String docType;  
   final double price;    
+  final String mobile;
+  final String lineId;
+  final String email;  
   // final List<String> streets;
   // final List<WorkFlow> workflows;
 
   //=============================================================
   // 2) CONSTUCTURE
   //=============================================================
-  DealModel({
+  DBDealModel({
     this.id  = Uuid.NAMESPACE_X500,
     this.name = '',
     this.description = '',
     this.imageUrl = '',
     this.createdBy = '',
     this.docType = '',
-    this.price = 0,    
+    this.price = 0,   
+    this.mobile,
+    this.lineId,
+    this.email 
     // this.streets = ,
     // this.workflows ,
   }) : assert(id != null, name != null);
@@ -36,16 +42,19 @@ class DealModel {
   //=============================================================
   // 3) MAP SNAPSHOT -> MODEL
   //=============================================================
-  factory DealModel.fromFilestore(DocumentSnapshot doc) {
+  factory DBDealModel.fromFilestore(DocumentSnapshot doc) {
     Map data = doc.data;
-    return DealModel(
+    return DBDealModel(
       id: data['id'] ?? '',
       name: data['name'] ?? '',
       description: data['description'] ?? '',
       imageUrl: data['imageUrl'] ?? '',   
       createdBy: data['createdBy'] ?? '',   
       docType: data['docType'] ?? '',     
-      price: data['price'] ?? 0,        
+      price: data['price'] ?? 0,   
+      email: data['email'] ?? '',     
+      mobile: data['mobile'] ?? '',     
+      lineId: data['lineId'] ?? '',                            
       // streets: List<String>.from(data['streets']), // CONVERT FROM LIST<dynamic> to LIST<String> 
       // workflows: List<WorkFlow>.from(data['workflows'].map((e) => WorkFlow.fromFilestore(e))),  // CONVERT FROM LIST<dynamic>(i) to LIST<workflows>(i) and map index in list
     );
@@ -62,7 +71,10 @@ class DealModel {
         'imageUrl': imageUrl??'',
         'createdBy': createdBy??'',
         'docType': docType??'',  
-        'price': price??'',          
+        'price': price??'',       
+        'email': email??'',
+        'mobile': mobile??'',
+        'lineId': lineId??'',                           
         // 'streets': streets,        
         // 'workflows': List<dynamic>.from(workflows.map((e) => e.toFileStore())),
     };
@@ -71,8 +83,8 @@ class DealModel {
   //=============================================================
   // 5) MAP JSON -> MODEL
   //=============================================================
-  factory DealModel.fromJson(Map<String, dynamic> json) {
-    return DealModel(
+  factory DBDealModel.fromJson(Map<String, dynamic> json) {
+    return DBDealModel(
       id: json['id'] ?? '',
       name: json['name'] ?? '',
       description: json['description'] ?? '',
