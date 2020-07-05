@@ -2,6 +2,7 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 // import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import '../screens/HotelDetailPage.dart';
 // import '../screens/SearchDealFlightHotelPage.dart';
@@ -39,7 +40,10 @@ class _TabHomeWidgetState extends State<TabHomeWidget> {
 //========================================================================== 
   @override
   Widget build(BuildContext context) {
-    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
+//==========================================================================
+// STATUS BAR COLOR (IMPORT FLUTTER/SERVICE)
+//==========================================================================   
+   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor:  Theme.of(context).primaryColor,));
     return 
 //==========================================================================
 // BODY
@@ -49,7 +53,10 @@ class _TabHomeWidgetState extends State<TabHomeWidget> {
 //==========================================================================
 // IMAGE
 //==========================================================================
-                Image(image: AssetImage('assets/images/tophome.JPG')),
+               // Image(image: AssetImage('assets/images/tophome.JPG')),
+                FadeInImage.assetNetwork(placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/tophome.JPG?alt=media&token=1193fa60-e1f9-43ac-b387-66f455154b19'),
+
+                
 //==========================================================================
 // TAB BAR
 //==========================================================================
@@ -100,7 +107,8 @@ class _TabHomeWidgetState extends State<TabHomeWidget> {
 //==========================================================================           
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Image(image: AssetImage('assets/images/lady.JPG')),
+        child: FadeInImage.assetNetwork(placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/lady.JPG?alt=media&token=dac6dd41-d0a8-4206-8839-b39ea07adf4e'),
+        //child: Image(image: AssetImage('assets/images/lady.JPG')),
       ),
 //==========================================================================
 // WIDGET
@@ -123,7 +131,7 @@ class Choice {
 // CLASS CHOICE
 //==========================================================================
 const List<Choice> choices = const <Choice>[
-  Choice(title: 'Flight + Hotel', icon: Icons.flight),
-  Choice(title: 'Train', icon: Icons.tram),
-  Choice(title: 'Hotel', icon: Icons.hotel),
+  Choice(title: 'ที่พัก', icon: Icons.flight),
+  Choice(title: 'ทัวร์ท้องถิ่น', icon: Icons.tram),
+  Choice(title: 'ตั่วต่างๆ', icon: Icons.hotel),
 ];
