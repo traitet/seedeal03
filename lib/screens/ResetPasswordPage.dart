@@ -95,7 +95,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
 //==========================================================================
 // BUTTON
 //==========================================================================      
-          ButtonBarWidget(onPressed: () {resetPassword(context,email: emailController.text); },), 
+          ButtonBarWidget(
+            text: 'Submit',
+            onPressed: () {resetPassword(context,email: emailController.text); },), 
 //==========================================================================
 // LOADING
 //========================================================================== 
