@@ -34,7 +34,7 @@ Future<FirebaseUser> loginWithGoogle(BuildContext context) async {
 //=================================================================================
 // FUNCTION#2 LOGIN BY FIREBASE (USER NAME AND PASSWORD)
 //=================================================================================
-Future<bool> loginWithEmail(BuildContext context,{@required String email, @required String password}) {
+Future<bool> loginByEmail(BuildContext context,{@required String email, @required String password}) {
 //=================================================================================
 // RETURN
 //=================================================================================

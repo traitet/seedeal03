@@ -3,7 +3,7 @@
 //==========================================================================
 import 'package:flutter/material.dart';
 import '../models/TextStyleModel.dart';
-import '../screens/LoginPage.dart';
+import 'LoginPage.dart';
 import '../services/FirebaseAuthenService.dart';
 import '../singletons/GlobalAppData.dart';
 import '../widgets/ButtonBarWidget.dart';
@@ -12,16 +12,16 @@ import '../widgets/TextFieldWidget.dart';
 //==========================================================================
 // CLASS
 //==========================================================================
-class SignInByEmailPage extends StatefulWidget {
+class LogInByEmailPage extends StatefulWidget {
  
   @override
-  _SignInByEmailPageState createState() => _SignInByEmailPageState();
+  _LogInByEmailPageState createState() => _LogInByEmailPageState();
 }
 
 //==========================================================================
 // STATE
 //==========================================================================
-class _SignInByEmailPageState extends State<SignInByEmailPage> {
+class _LogInByEmailPageState extends State<LogInByEmailPage> {
 //==========================================================================
 // DECLARE VARIABLE
 //==========================================================================  
@@ -60,7 +60,7 @@ class _SignInByEmailPageState extends State<SignInByEmailPage> {
 //==========================================================================
 // ** NEED TO BACK CALLING PAGE ** (NOT ONLY LOGIN)
 //==========================================================================            
-            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);}
+            onPressed: (){Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()),);}
           ),
           title: Text('Sign-in by E-mail'),
         ),
@@ -96,7 +96,7 @@ class _SignInByEmailPageState extends State<SignInByEmailPage> {
 //==========================================================================  
 signIn(BuildContext context, {String email, String password})
     {
-      loginWithEmail(context, email: email, password: password).then((value) {
+      loginByEmail(context, email: email, password: password).then((value) {
 //==========================================================================
 // APP DATA
 //==========================================================================          

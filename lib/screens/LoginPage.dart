@@ -8,7 +8,7 @@ import '../screens/HomePage.dart';
 import '../singletons/GlobalAppData.dart';
 import '../services/ShowNotiService.dart';
 import '../models/TextStyleModel.dart';
-import '../screens/SignInByEmailPage.dart';
+import '../screens/LoginByEmailPage.dart';
 import '../screens/SignUpPage.dart';
 import '../services/FirebaseAuthenService.dart';
 import '../widgets/ButtonBarWidget.dart';
@@ -130,7 +130,7 @@ Image(image: AssetImage('assets/images/welcome.JPG')),
 // SIGN-IN BUTTON
 //==========================================================================                
                 ButtonBarWidget(
-                  onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInByEmailPage()),);},
+                  onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LogInByEmailPage()),);},
                   splashColor: Theme.of(context).primaryColor,
                   text: "Sign in by E-mail",
                 ),
