@@ -2,15 +2,17 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
-// import 'package:seedeal02/screens/LoginFirebaseEmailPage.dart';
-// import 'package:seedeal02/screens/DealPostPage.dart';
-// import 'package:seedeal02/screens/MyResetPasswordPage.dart';
-// import 'package:seedeal02/screens/ProfilePage.dart';
-// import 'package:seedeal02/screens/SignInByEmailPage.dart';
+import './screens/HomePage.dart';
+import './screens/LoginPage.dart';
+import './screens/SignUpPage.dart';
+import './screens/SignInByEmailPage.dart';
+// import './screens/LoginFirebaseEmailPage.dart';
+// import './screens/DealPostPage.dart';
+// import './screens/MyResetPasswordPage.dart';
+// import '../screens/ProfilePage.dart';
 // import './screens/AddTravellerPage.dart';
 // import './screens/PersonalDetailPage.dart';
 // import './screens/PaymentMethodPage.dart';
-// import './screens/HomePage.dart';
 // import './screens/ManageBookingPage.dart';
 // import './screens/MenuPage.dart';
 // import './screens/BookingPage.dart';
@@ -21,9 +23,7 @@ import 'package:flutter/material.dart';
 // import './screens/SearchDealTrainPage.dart';
 // import './screens/SearchFlightHotelPage.dart';
 // import './screens/SearchHotelPage.dart';
-// import './screens/SignUpPage.dart';
 // import './screens/TravelBuddiesPage.dart';
-// import './screens/LoginPage.dart';
 // import './screens/HotelDetailPage.dart';
 // import './screens/DealListGetPage.dart';
 
@@ -120,15 +120,15 @@ class _MyHomePageState extends State<MyHomePage> {
 //==========================================================================
 // RAISED BUTTON
 //========================================================================== 
-            // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);}, child: Text('Home Page'),), 
-            // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignInByEmailPage()),);}, child: Text('Sign-in by E-mail'),),               
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);}, child: Text('Home Page'),), 
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);}, child: Text('Login '),),               
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignInByEmailPage()),);}, child: Text('Sign-in by E-mail'),),   
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),                             
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);}, child: Text('Profile'),),                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => MyResetPasswordPage()),);}, child: Text('Reset Password Page - test'),),                
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealListGetPage()),);}, child: Text('Get Deal List Page'),),                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealPostPage()),);}, child: Text('Post Deal Page'),),                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordPage()),);}, child: Text('Reset Password'),),     
-            // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),     
-            // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);}, child: Text('Login '),),   
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginFirebaseEmailPage()),);}, child: Text('Login Firebase '),),               
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SearchHotelPage()),);}, child: Text('Search Hotel'),),      
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SearchFlightHotelPage()),);}, child: Text('Search Flight Hotel'),),    
