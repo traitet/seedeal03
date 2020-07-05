@@ -2,7 +2,7 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
-import '../widgets/TabPostAddImageWidget.dart';
+// import '../widgets/TabPostAddImageWidget.dart';
 
 //==========================================================================
 // MAIN CLASS
@@ -50,7 +50,7 @@ class _PostDealPageState extends State<PostDealPage> {
 //==========================================================================
 // Tab#1) Add Imaage
 //==========================================================================  
-        tabIndex == 0 ? TabPostAddImageWidget():
+        // tabIndex == 0 ? TabPostAddImageWidget():
         tabIndex == 1 ? TabAddDetail():
         tabIndex == 2 ? TabAddContact():      
         tabIndex == 3 ? TabAddDelivery(): 
@@ -93,7 +93,9 @@ class TabAddImage extends StatelessWidget {
     return 
     Container(
       alignment: Alignment.center,
-      child: FlatButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => TabPostAddImageWidget()),);}, child: Text('คลิ๊กที่นี่เพื่อเพิ่มรูปภาพ', style: TextStyle(fontSize: 20)),));
+      child: FlatButton(onPressed: (){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => TabPostAddImageWidget()),);
+        }, child: Text('คลิ๊กที่นี่เพื่อเพิ่มรูปภาพ', style: TextStyle(fontSize: 20)),));
   }
 }
 
