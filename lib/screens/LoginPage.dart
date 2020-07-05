@@ -64,7 +64,8 @@ class _LoginPageState extends State<LoginPage> {
 //==========================================================================
 // TEXT: WELCOME
 //==========================================================================
-Image(image: AssetImage('assets/images/welcome.JPG')),
+                // Image(image: AssetImage('assets/images/welcome.JPG')),
+                FadeInImage.assetNetwork(placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/welcome.JPG?alt=media&token=ac57c446-c4aa-4e81-89b9-48d937e671f4'),
 
 //==========================================================================
 // TEXT: JOIN US
