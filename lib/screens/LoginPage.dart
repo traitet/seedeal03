@@ -3,7 +3,6 @@
 //==========================================================================
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import '../screens/HomePage.dart';
 import '../singletons/GlobalAppData.dart';
 import '../services/ShowNotiService.dart';

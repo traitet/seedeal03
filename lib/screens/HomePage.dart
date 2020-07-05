@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 // import '../widgets/TabHomeWidget.dart';
 // import '../widgets/TabMoreWidget.dart';
 // import '../widgets/TabMyProfileWidget.dart';
-// import '../widgets/TabNotFoundWidget.dart';
+import '../widgets/TabNotFoundWidget.dart';
 // import '../widgets/TabSearchDealWidget.dart';
-// import '../widgets/TabSearchWidget.dart';
+import '../widgets/TabSearchWidget.dart';
 
 //==========================================================================
 // MAIN CLASS
@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // const padding = 15.0;
-    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG
@@ -73,14 +72,14 @@ class _HomePageState extends State<HomePage> {
 //==========================================================================
 // BODY
 //==========================================================================
-            // body:
+            body:
             //         _tabIndex == 0 ? TabHomeWidget():
             //         _tabIndex == 1 ? TabSearchDealWidget():
-            //         _tabIndex == 2 ? TabSearchWidget():
+                       _tabIndex == 2 ? TabSearchWidget():
             //         _tabIndex == 3 ? TabPostDealWidget():             
             //         _tabIndex == 4 ? TabMyProfileWidget():                                  
             //         _tabIndex == 5 ? TabMoreWidget(): 
-            //         TabNotFoundWidget()                 
+                      TabNotFoundWidget()                 
 //==========================================================================
 // END: SCAFFOLD & MATERIAL APP
 //==========================================================================            

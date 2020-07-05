@@ -91,14 +91,10 @@ class _LoginBySmsPageState extends State<LoginBySmsPage> {
 // HOME
 //==========================================================================    
       home: Scaffold(
-        appBar: AppBar(title: const Text('Login by SMS 1234'),),
-        body: Center(
-          child: RaisedButton(
-              child: Text("Verify"),
-              onPressed: () {
-                verifyPhone();
-              }),
-        ),
+        appBar: AppBar(
+          // leading: IconButton(icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
+          title: const Text('Login by SMS 1234'),),
+        body: Center(child: RaisedButton(child: Text("Verify"),onPressed: () {verifyPhone();}),),
       ),
     );
   }
