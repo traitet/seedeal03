@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../widgets/TabPostDealWidget.dart';
-// import '../widgets/TabHomeWidget.dart';
+import '../widgets/TabHomeWidget.dart';
 import '../widgets/TabMoreWidget.dart';
 // import '../widgets/TabMyProfileWidget.dart';
 import '../widgets/TabNotFoundWidget.dart';
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
 // BODY
 //==========================================================================
             body:
-            //         _tabIndex == 0 ? TabHomeWidget():
+                      _tabIndex == 0 ? TabHomeWidget():
             //         _tabIndex == 1 ? TabSearchDealWidget():
                        _tabIndex == 2 ? TabSearchWidget():
                      _tabIndex == 3 ? TabPostDealWidget():             
