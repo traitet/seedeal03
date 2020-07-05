@@ -3,6 +3,7 @@
 //==========================================================================
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:flutter/services.dart';
 import '../screens/HomePage.dart';
 import '../singletons/GlobalAppData.dart';
 import '../services/ShowNotiService.dart';
@@ -36,7 +37,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     const padding = 15.0;
-    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
+//==========================================================================
+// STATUS BAR COLOR (IMPORT FLUTTER/SERVICE)
+//==========================================================================   
+   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor:  Theme.of(context).primaryColor,));
+
+
+
+
+
+
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG
