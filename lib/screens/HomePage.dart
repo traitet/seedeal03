@@ -2,13 +2,16 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
-// import '../widgets/TabPostDealWidget.dart';
+import 'package:flutter/services.dart';
+import '../widgets/TabPostDealWidget.dart';
 // import '../widgets/TabHomeWidget.dart';
-// import '../widgets/TabMoreWidget.dart';
+import '../widgets/TabMoreWidget.dart';
 // import '../widgets/TabMyProfileWidget.dart';
 import '../widgets/TabNotFoundWidget.dart';
 // import '../widgets/TabSearchDealWidget.dart';
 import '../widgets/TabSearchWidget.dart';
+
+
 
 //==========================================================================
 // MAIN CLASS
@@ -31,7 +34,11 @@ class _HomePageState extends State<HomePage> {
 //==========================================================================  
   @override
   Widget build(BuildContext context) {
-    // const padding = 15.0;
+//==========================================================================
+// STATUS BAR COLOR (IMPORT FLUTTER/SERVICE)
+//==========================================================================   
+   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor:  Theme.of(context).primaryColor,));
+    // const padding = 15.0;   
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG
@@ -65,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(icon: Icon(Icons.assignment_ind),title: Text('ดีลเด่น'),),                
                 BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('ค้นหาดีล'),),
                 BottomNavigationBarItem(icon: Icon(Icons.insert_comment), title: Text('โพสต์ดีล')),                      
-                BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('ประวัติ')),
+                // BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('ประวัติ')),
                 BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('อื่น ๆ')),
               ],
             ),
@@ -76,9 +83,9 @@ class _HomePageState extends State<HomePage> {
             //         _tabIndex == 0 ? TabHomeWidget():
             //         _tabIndex == 1 ? TabSearchDealWidget():
                        _tabIndex == 2 ? TabSearchWidget():
-            //         _tabIndex == 3 ? TabPostDealWidget():             
+                     _tabIndex == 3 ? TabPostDealWidget():             
             //         _tabIndex == 4 ? TabMyProfileWidget():                                  
-            //         _tabIndex == 5 ? TabMoreWidget(): 
+                       _tabIndex == 4 ? TabMoreWidget(): 
                       TabNotFoundWidget()                 
 //==========================================================================
 // END: SCAFFOLD & MATERIAL APP

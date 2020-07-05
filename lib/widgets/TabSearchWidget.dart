@@ -2,7 +2,7 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+// import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import '../widgets/LVVertSearchHotelWidget.dart';
 import '../screens/HotelDetailPage.dart';
 
@@ -22,7 +22,7 @@ class _TabSearchWidgetState extends State<TabSearchWidget> {
   Widget build(BuildContext context) {
     // const padding = 15.0;
 
-    FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
+    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG
