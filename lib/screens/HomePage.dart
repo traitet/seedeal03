@@ -68,9 +68,9 @@ class _HomePageState extends State<HomePage> {
               currentIndex: _tabIndex,
               items: [
                 BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('หน้าแรก') ),
-                BottomNavigationBarItem(icon: Icon(Icons.assignment_ind),title: Text('ดีลเด่น'),),                
+                BottomNavigationBarItem(icon: Icon(Icons.stars),title: Text('ดีลเด่น'),),                
                 BottomNavigationBarItem(icon: Icon(Icons.search),title: Text('ค้นหาดีล'),),
-                BottomNavigationBarItem(icon: Icon(Icons.insert_comment), title: Text('โพสต์ดีล')),                      
+                BottomNavigationBarItem(icon: Icon(Icons.playlist_add), title: Text('โพสต์ดีล')),                      
                 BottomNavigationBarItem(icon: Icon(Icons.more_horiz), title: Text('อื่น ๆ')),
               ],
             ),

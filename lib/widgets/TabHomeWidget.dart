@@ -131,7 +131,7 @@ class Choice {
 // CLASS CHOICE
 //==========================================================================
 const List<Choice> choices = const <Choice>[
-  Choice(title: 'ที่พัก', icon: Icons.flight),
-  Choice(title: 'ทัวร์ท้องถิ่น', icon: Icons.tram),
-  Choice(title: 'ตั่วต่างๆ', icon: Icons.hotel),
+  Choice(title: 'ที่พัก', icon: Icons.store),
+  Choice(title: 'ทัวร์ท้องถิ่น', icon: Icons.accessibility),
+  Choice(title: 'ร้านอาหาร', icon: Icons.restaurant)
 ];

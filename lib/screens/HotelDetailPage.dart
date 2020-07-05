@@ -3,7 +3,7 @@
 //==========================================================================
 import 'package:flutter/material.dart';
 // import '../screens/PaymentMethodPage.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+// import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 //==========================================================================
 // MAIN CLASS
@@ -21,7 +21,7 @@ class _HotelDetailPageState extends State<HotelDetailPage> {
   Widget build(BuildContext context) {
     // const padding = 15.0;
 
-    FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
+    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG

@@ -209,13 +209,8 @@ class _LoginPageState extends State<LoginPage> {
 //==========================================================================
 // CREATE ACCOUNT BUTTON
 //==========================================================================                
-                FlatButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);
-                  },
-                  child: Text('Create an Account',
-                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.blue[800])),
-                ),
+                FlatButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);},
+                child: Text('Create an Account',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.blue[800])),),
               ],
             ),
           ),

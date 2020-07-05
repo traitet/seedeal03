@@ -2,6 +2,7 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
+import 'package:seedeal03/screens/ResetPasswordPage.dart';
 import '../models/TextStyleModel.dart';
 import 'LoginPage.dart';
 import '../services/FirebaseAuthenService.dart';
@@ -61,7 +62,7 @@ class _LogInByEmailPageState extends State<LogInByEmailPage> {
 //==========================================================================
 // ** NEED TO BACK CALLING PAGE ** (NOT ONLY LOGIN)
 //==========================================================================            
-            onPressed: (){Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()),);}
+            onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);}
           ),
           title: Text('การล็อกอินด้วยอีเมล์'),
         ),
@@ -89,6 +90,19 @@ class _LogInByEmailPageState extends State<LogInByEmailPage> {
 // BUTTON
 //==========================================================================      
             ButtonBarWidget(onPressed: () {signIn(context,email: _emailController.text,password:_passwordController.text);},splashColor: Theme.of(context).primaryColor,text: "Login",),            
+//==========================================================================
+// TEXT
+//==========================================================================                     
+                SizedBox(height: 25),
+                Center(child: Text("Forget Password (ลืมรหัสผ่าน) ?",style: TextStyleModel().textStyleM)),
+                SizedBox(height: 25),                
+//==========================================================================
+// CREATE ACCOUNT BUTTON
+//==========================================================================                
+                FlatButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordPage()),);
+                },
+                child: Text('Get e-mail to reset Password\n(รับอีเมล์เพื่อกำหนดรหัสผ่านใหม่)',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.blue[800])),),          
           ],),
         ),
       ),

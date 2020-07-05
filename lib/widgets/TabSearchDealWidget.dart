@@ -96,8 +96,8 @@ class Choice {
 // LIST
 //==========================================================================
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Hotel + Flight', icon: Icons.flight),
-  const Choice(title: 'Train', icon: Icons.train),
-  const Choice(title: 'Hotel', icon: Icons.hotel),
+  const Choice(title: 'ที่พัก', icon: Icons.store),
+  const Choice(title: 'ทัวร์ท้องถิ่น', icon: Icons.accessibility),
+  const Choice(title: 'ร้านอาหาร', icon: Icons.restaurant),
 ];
 

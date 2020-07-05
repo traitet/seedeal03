@@ -111,9 +111,9 @@ class Choice {
 // LIST
 //==========================================================================
 const List<Choice> choices = const <Choice>[
-  const Choice(title: 'ออนไลน์ (1)', icon: Icons.flight),
-  const Choice(title: 'รอการตรวจสอบ (2)', icon: Icons.train),
-  const Choice(title: 'รอการแก้ไข (1)', icon: Icons.hotel),
+  const Choice(title: 'ออนไลน์ (1)', icon: Icons.airplay),
+  const Choice(title: 'รอการตรวจสอบ (2)', icon: Icons.hourglass_empty),
+  const Choice(title: 'รอการแก้ไข (1)', icon: Icons.create),
 ];
 
 
