@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import './screens/HomePage.dart';
 import './screens/LoginPage.dart';
 import './screens/SignUpPage.dart';
-import 'screens/LoginByEmailPage.dart';
+import './screens/LoginByEmailPage.dart';
+import './screens/LoginBySmsPage.dart';
+import './services/FirebaseAuthenService.dart';
 // import './screens/LoginFirebaseEmailPage.dart';
 // import './screens/DealPostPage.dart';
 // import './screens/MyResetPasswordPage.dart';
@@ -123,7 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);}, child: Text('Home Page'),), 
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);}, child: Text('Login '),),               
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LogInByEmailPage()),);}, child: Text('Sign-in by E-mail'),),   
-            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),                             
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),      
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginBySmsPage()),);}, child: Text('Login by SMS'),),    
+            RaisedButton(onPressed: (){signOut(context);}, child: Text('Logout'),),                                                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);}, child: Text('Profile'),),                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => MyResetPasswordPage()),);}, child: Text('Reset Password Page - test'),),                
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealListGetPage()),);}, child: Text('Get Deal List Page'),),                 

@@ -12,6 +12,7 @@ import '../screens/LoginByEmailPage.dart';
 import '../screens/SignUpPage.dart';
 import '../services/FirebaseAuthenService.dart';
 import '../widgets/ButtonBarWidget.dart';
+import '../widgets/LoadingWidget.dart';
 
 //==========================================================================
 // MAIN CLASS
@@ -26,13 +27,17 @@ class LoginPage extends StatefulWidget {
 //==========================================================================
 class _LoginPageState extends State<LoginPage> {
 //==========================================================================
+// DECLARE VARIABLE
+//==========================================================================  
+    bool _isLoading = false;
+//==========================================================================
 // GLOBAL KEY ******
 //==========================================================================  
-   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     const padding = 15.0;
-    FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
+    // FlutterStatusbarcolor.setStatusBarColor(Theme.of(context).primaryColor);
     return MaterialApp(
 //==========================================================================
 // SHOW DEBUG
@@ -77,16 +82,61 @@ class _LoginPageState extends State<LoginPage> {
 //==========================================================================                        
                 Center(child: Text('Login',style: TextStyleModel().textStyleM)),
                 SizedBox(height: padding),
+ //==========================================================================
+// LOADING.. WIDGET
+//==========================================================================   
+                LoadingWidget(isLoading: _isLoading),   
 //==========================================================================
-// FACEBOOK BUTTON
+// GOOGLE BUTTON
 //==========================================================================                
-                FacebookSignInButton(onPressed: () {loginWithGoogle(context);}),
+                FacebookSignInButton(
+                  onPressed: () {
+//==========================================================================
+// ENABLE LOADING...
+//========================================================================== 
+                    setState(() {_isLoading = true;});        
+//==========================================================================
+// CALL LOGIN WITH GOOGLE
+//==========================================================================                                 
+                     loginWithFacebook(context).then((authResult){
+                      // showMessageBox(context, "Success", authResult.displayName.toString(), actions: [dismissButton(context)]);  
+//==========================================================================
+// SINGLETON: SHARED CLASS
+//==========================================================================
+                      //result.sendEmailVerification();          
+                      globalAppData.isLogin = true;
+                      globalAppData.email = authResult.email;
+                      globalAppData.name = authResult.displayName;     
+                      globalAppData.mobile = authResult.phoneNumber;   
+                      globalAppData.imageProfileUrl = authResult.photoUrl;        
+//==========================================================================
+// NAVIGATE
+//==========================================================================
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                    }).catchError((error){
+                        showMessageBox(context, "Error", error.details, actions: [dismissButton(context)]);   
+                    }).whenComplete(()  {
+//==========================================================================
+// DISABLE LOADING...
+//========================================================================== 
+                      setState(() {_isLoading = false;});
+                    });
+                  },
+                  splashColor: Colors.white,
+                ),
                 SizedBox(height: padding),
 //==========================================================================
 // GOOGLE BUTTON
 //==========================================================================                
                 GoogleSignInButton(
                   onPressed: () {
+//==========================================================================
+// ENABLE LOADING...
+//========================================================================== 
+                    setState(() {_isLoading = true;});        
+//==========================================================================
+// CALL LOGIN WITH GOOGLE
+//==========================================================================                                 
                      loginWithGoogle(context).then((authResult){
                       // showMessageBox(context, "Success", authResult.displayName.toString(), actions: [dismissButton(context)]);  
 //==========================================================================
@@ -97,14 +147,18 @@ class _LoginPageState extends State<LoginPage> {
                       globalAppData.email = authResult.email;
                       globalAppData.name = authResult.displayName;     
                       globalAppData.mobile = authResult.phoneNumber;   
-                      globalAppData.imageProfileUrl = authResult.photoUrl;                            
+                      globalAppData.imageProfileUrl = authResult.photoUrl;        
 //==========================================================================
 // NAVIGATE
 //==========================================================================
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
                     }).catchError((error){
                         showMessageBox(context, "Error", error.details, actions: [dismissButton(context)]);   
-                    }).whenComplete(() => {
+                    }).whenComplete(()  {
+//==========================================================================
+// DISABLE LOADING...
+//========================================================================== 
+                      setState(() {_isLoading = false;});
                     });
                   },
                   splashColor: Colors.white,
@@ -115,18 +169,29 @@ class _LoginPageState extends State<LoginPage> {
 //==========================================================================                
                 AppleSignInButton(
                   onPressed: () {
+//==========================================================================
+// ENABLE LOADING...
+//========================================================================== 
+                    setState(() {_isLoading = true;});       
+//==========================================================================
+// LOGING WITH APPLE
+//==========================================================================                                    
                     loginWithApple(context).then((result){
                       showMessageBox(context, "Success", result.displayName.toString(), actions: [dismissButton(context)]);
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);                           
                     }).catchError((error){
                       showMessageBox(context, "Error", error.details, actions: [dismissButton(context)]);  
-                    }).whenComplete(() => {
+                    }).whenComplete(()  {
                       //showMessageBox(context, "Completed", 'When Completed', actions: [dismissButton(context)])
+//==========================================================================
+// DISABLE LOADING...
+//========================================================================== 
+                    setState(() {_isLoading = false;});                          
                     });
                   },
                 ),
                 SizedBox(height: padding),     
-                           
+                       
 //==========================================================================
 // SIGN-IN BUTTON
 //==========================================================================                

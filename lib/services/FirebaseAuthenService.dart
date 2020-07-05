@@ -4,7 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../singletons/GlobalAppData.dart';
 import '../screens/HomePage.dart';
 import '../screens/LoginPage.dart';
 import '../screens/SignUpPage.dart';
@@ -26,8 +28,7 @@ Future<FirebaseUser> loginWithGoogle(BuildContext context) async {
   final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
   final AuthCredential credential = GoogleAuthProvider.getCredential(
       idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
-  AuthResult authResult = await _auth.signInWithCredential(credential);
-       
+      AuthResult authResult = await _auth.signInWithCredential(credential);
   return authResult.user;
 }
 
@@ -42,9 +43,14 @@ Future<bool> loginByEmail(BuildContext context,{@required String email, @require
 //=================================================================================
 // LOGIN COMPLETED
 //=================================================================================    
-    logger.i("Welcome " + result.user.uid);
-    //Navigator.pop(context);
-    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage()),);
+        logger.i("Welcome " + result.user.uid);
+        //Navigator.pop(context);
+        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage()),);
+        globalAppData.isLogin = true;
+        globalAppData.email = email;
+        globalAppData.userName = result.user.displayName;
+        globalAppData.imageProfileUrl = result.user.photoUrl;
+        globalAppData.mobile = result.user.phoneNumber;
     return true;
 //=================================================================================
 // LOGIN ERROR
@@ -103,6 +109,28 @@ Future<bool> loginByEmail(BuildContext context,{@required String email, @require
     // return false;
   });
 }
+
+//=================================================================================
+// FUNCTION: GET CURRENT USER
+//=================================================================================
+Future<FirebaseUser> getCurrentUser() async {
+    FirebaseUser user = await _auth.currentUser();
+    return user;
+  }
+//=================================================================================
+// FUNCTION: SEND EMAL VERIFICATION
+//=================================================================================
+Future<void> sendEmailVerification() async {
+    FirebaseUser user = await _auth.currentUser();
+    user.sendEmailVerification();
+  }
+//=================================================================================
+// FUNCTION: IS EMAIL VERIFIED
+//=================================================================================
+Future<bool> isEmailVerified() async {
+    FirebaseUser user = await _auth.currentUser();
+    return user.isEmailVerified;
+  }
 
 //=================================================================================
 // FUNCTION#3 REGISTER WITH EMAIL
@@ -219,11 +247,22 @@ Future firebaseCreateUserWithEmailAndPassword(BuildContext context,{String email
 //=================================================================================
 void signOut(BuildContext context) {
     _auth.signOut();
+//=================================================================================
+// CLAR SHARED DATA
+//=================================================================================    
+        globalAppData.email = '';
+        globalAppData.name = '';     
+        globalAppData.mobile = '';   
+        globalAppData.imageProfileUrl = '';      
+        globalAppData.surname = '';
+//=================================================================================
+// NAVIGATE TO LOGIN
+//=================================================================================        
     Navigator.pushAndRemoveUntil(context,CupertinoPageRoute(builder: (context) => LoginPage()),ModalRoute.withName('/LoginPage'));
     //Navigator.pop(context);
     //Navigator.of(context).pushNamedAndRemoveUntil('/LoginPage', (Route<dynamic> route) => false);
-   // Navigator.of(context).popUntil((route) => route.isFirst);
-   //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);
+    // Navigator.of(context).popUntil((route) => route.isFirst);
+    //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);
   }  
 
 
@@ -237,13 +276,20 @@ Future<bool> loginWithLine(BuildContext context) async{
 
 
 //=================================================================================
-// FUNCTION# LOGIN WITH LINE
+// FUNCTION# LOGIN WITH FACEBOOK (NOT FINISHED: SEE BELOW)
+// https://benzneststudios.com/blog/flutter/facebook-login-with-firebase-auth-in-flutter/
 //=================================================================================
-Future<bool> loginWithFacebook(BuildContext context) async{
-  return true;
-}
-
-
+Future loginWithFacebook(BuildContext context) async {
+    FacebookLogin facebookLogin = FacebookLogin();
+    FacebookLoginResult result = await facebookLogin
+        .logInWithReadPermissions(['email', "public_profile"]);
+ 
+    String token = result.accessToken.token;
+    print("Access token = $token");
+    await _auth.signInWithCredential(
+        FacebookAuthProvider.getCredential(accessToken: token));
+    checkAuth(context); // after success, navigate to home.
+  }
 
 //=================================================================================
 // FUNCTION# LOGIN WITH PHONE
