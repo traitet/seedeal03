@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/TabNotFoundWidget.dart';
 import '../singletons/GlobalAppData.dart';
-// import '../widgets/tabpostdeal/PostDealPage.dart';
+import '../screens/PostDealPage.dart';
 // import '../widgets/tabpostdeal/TabPostDealOnlineWidget.dart';
 //==========================================================================
 // MAIN CLASS
@@ -52,7 +52,7 @@ class _TabPostDealWidgetState extends State<TabPostDealWidget> {
             actions: <Widget>[
               FlatButton(
                 onPressed: (){
-                //  Navigator.push(context, MaterialPageRoute(builder: (context) => PostDealPage()),);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PostDealPage()),);
                 },
                 //padding: EdgeInsets.all(2),
                 child: Container(
@@ -71,7 +71,10 @@ class _TabPostDealWidgetState extends State<TabPostDealWidget> {
 //==========================================================================
 // TAB BAR
 //==========================================================================  
-          bottom: TabBar(   
+          bottom:  
+            
+            TabBar(   
+              
               isScrollable: true,   
               onTap: (int index){setState(() => tabIndex = index);},  
               tabs:choices.map((Choice choice) {return Tab(text: choice.title,icon: Icon(choice.icon),);}).toList(), )
@@ -79,7 +82,7 @@ class _TabPostDealWidgetState extends State<TabPostDealWidget> {
 //==========================================================================
 // BODY: TABBAR VIEW
 //==========================================================================
-          body: TabBarView(
+          body: TabBarView(          
             children: choices.map((Choice choice) {
               return Container(
                 color: Colors.black87,
