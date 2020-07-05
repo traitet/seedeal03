@@ -29,7 +29,7 @@ class _LogInByEmailPageState extends State<LogInByEmailPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
-  //============================================================================
+//============================================================================
 // GLOBAL KEY (SCAFFOLD FOR SNACKBAR)
 //============================================================================  
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();  
