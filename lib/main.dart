@@ -8,6 +8,7 @@ import './screens/SignUpPage.dart';
 import './screens/LoginByEmailPage.dart';
 import './services/FirebaseAuthenService.dart';
 import './screens/DealPostPage.dart';
+import './screens/SingleUploadImagePage.dart';
 // import './screens/LoginFirebaseEmailPage.dart';
 // import './screens/MyResetPasswordPage.dart';
 // import '../screens/ProfilePage.dart';
@@ -127,7 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),      
            // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginBySmsPage()),);}, child: Text('Login by SMS'),),    
             RaisedButton(onPressed: (){signOut(context);}, child: Text('Logout'),),      
-            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealPostPage()),);}, child: Text('Post Deal Page'),),                                                        
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealPostPage()),);}, child: Text('Post Deal Page'),),                   
+            RaisedButton(child: Text('Upload Single Image'),onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SingleUploadImagePage()));}),                                                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);}, child: Text('Profile'),),                 
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => MyResetPasswordPage()),);}, child: Text('Reset Password Page - test'),),                
             // RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DealListGetPage()),);}, child: Text('Get Deal List Page'),),                 

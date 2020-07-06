@@ -32,10 +32,10 @@ class _DealPostPageState extends State<DealPostPage> {
 //==========================================================================
 // DECLARE VARIABLE
 //==========================================================================  
-  File _image;
+  final imagePicker = ImagePicker(); 
+  PickedFile _pickedFile;
   String _uploadedFileURL = ''; 
-  final picker = ImagePicker();
-  bool isLoading = false;  
+  // bool _isLoading = false;  
 
 //==========================================================================
 // BUILD WIDGET
@@ -166,7 +166,7 @@ class _DealPostPageState extends State<DealPostPage> {
 //==========================================================================
 // UPLOAD FILE
 //==========================================================================  
-                  if (_image != null){await fnUploadFile();}              
+                  if (_pickedFile != null){await fnUploadFile();}              
 //==========================================================================
 // CALL SERVICE: SET DATA TO FIREBASE
 //==========================================================================               
@@ -188,8 +188,8 @@ class _DealPostPageState extends State<DealPostPage> {
 // BUILD WIDGET IMAGE AND TEXT (1) UPLOAD 2) GOOGLE 3) WRONG URL
 //================================================================================
             SizedBox(height: 16,),
-            _image != null ? 
-              Image.asset(_image.path,height: 200,):
+            _pickedFile != null ? 
+              Image.asset(_pickedFile.path,height: 200,):
               Container(
                 alignment: Alignment.center,
                 child: Text('Please select image from a top button',style: TextStyle(fontSize: 16),)),
@@ -203,27 +203,28 @@ class _DealPostPageState extends State<DealPostPage> {
 // GET IMAGE FROM CAMERA
 //==========================================================================    
   Future getImageFromCamera() async {
-      final pickedFile = await picker.getImage(source: ImageSource.camera);
-      setState(() {
-        _image = File(pickedFile.path);
-      });
+      imagePicker.getImage(source: ImageSource.camera).then((value) {
+           setState(() {_pickedFile = value;});   
+      }).catchError((error){}).whenComplete((){});
     }
-//==========================================================================  
-// GET IMAGE FROM GALLERY
+//==========================================================================
+// GET IMAGE FROM CAMERA
 //==========================================================================    
   Future getImageFromGallery() async {
-      final pickedFile = await picker.getImage(source: ImageSource.gallery);
-      setState(() {
-        _image = File(pickedFile.path);
-      });
-    }
+      imagePicker.getImage(source: ImageSource.gallery).then((value) {
+           setState(() {
+             _pickedFile = value;});   
+      }).catchError((error){
+
+      }).whenComplete((){
+      });}
     
 //==========================================================================================
 // UPLOAD IMAGE TO GOOGLE STORAGE
 //==========================================================================================
   Future fnUploadFile() async {
-    StorageReference storageReference = FirebaseStorage.instance.ref().child('chats/${Path.basename(_image.path)}}');
-    StorageUploadTask uploadTask = storageReference.putFile(_image);
+    StorageReference storageReference = FirebaseStorage.instance.ref().child('chats/${Path.basename(_pickedFile.path)}');
+    StorageUploadTask uploadTask = storageReference.putFile(File(_pickedFile.path));
     await uploadTask.onComplete;
     logger.i('File Uploaded');
     await storageReference.getDownloadURL().then((fileURL) {

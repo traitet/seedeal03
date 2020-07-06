@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+// import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../singletons/GlobalAppData.dart';
 import '../screens/HomePage.dart';
@@ -280,20 +280,20 @@ Future<bool> loginWithLine(BuildContext context) async{
 // https://benzneststudios.com/blog/flutter/facebook-login-with-firebase-auth-in-flutter/
 //=================================================================================
 Future loginWithFacebook(BuildContext context) async {
-    FacebookLogin facebookLogin = FacebookLogin();
-    FacebookLoginResult result = await facebookLogin
-        .logInWithReadPermissions(['email', "public_profile"]);
+//     FacebookLogin facebookLogin = FacebookLogin();
+//     FacebookLoginResult result = await facebookLogin
+//         .logInWithReadPermissions(['email', "public_profile"]);
  
-    String token = result.accessToken.token;
-    print("Access token = $token");
-    await _auth.signInWithCredential(
-        FacebookAuthProvider.getCredential(accessToken: token));
-    checkAuth(context); // after success, navigate to home.
-  }
+//     String token = result.accessToken.token;
+//     print("Access token = $token");
+//     await _auth.signInWithCredential(
+//         FacebookAuthProvider.getCredential(accessToken: token));
+//     checkAuth(context); // after success, navigate to home.
+//   }
 
-//=================================================================================
-// FUNCTION# LOGIN WITH PHONE
-//=================================================================================
-Future<bool> loginWithPhone(BuildContext context) async{
-  return true;
+// //=================================================================================
+// // FUNCTION# LOGIN WITH PHONE
+// //=================================================================================
+// Future<bool> loginWithPhone(BuildContext context) async{
+//   return true;
 }
