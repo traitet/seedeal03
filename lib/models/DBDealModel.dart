@@ -9,7 +9,9 @@ class DBDealModel {
   // 1) PROPERTY
   //=============================================================
   final String id;
-  final String name;
+  final String title;
+  final String firstName;
+  final String lastName;
   final String description;
   final String imageUrl;
   final String createdBy;
@@ -26,7 +28,9 @@ class DBDealModel {
   //=============================================================
   DBDealModel({
     this.id  = Uuid.NAMESPACE_X500,
-    this.name = '',
+    this.title = '',
+    this.firstName = '',    
+    this.lastName = '',        
     this.description = '',
     this.imageUrl = '',
     this.createdBy = '',
@@ -37,7 +41,7 @@ class DBDealModel {
     this.email 
     // this.streets = ,
     // this.workflows ,
-  }) : assert(id != null, name != null);
+  }) : assert(id != null, title != null);
 
   //=============================================================
   // 3) MAP SNAPSHOT -> MODEL
@@ -46,7 +50,9 @@ class DBDealModel {
     Map data = doc.data;
     return DBDealModel(
       id: data['id'] ?? '',
-      name: data['name'] ?? '',
+      title: data['title'] ?? '',
+      firstName: data['firstName'] ?? '',      
+      lastName: data['lastName'] ?? '',           
       description: data['description'] ?? '',
       imageUrl: data['imageUrl'] ?? '',   
       createdBy: data['createdBy'] ?? '',   
@@ -66,7 +72,9 @@ class DBDealModel {
   Map<String, dynamic> toFileStore()  {
     return {
         'id': id,
-        'name': name??'',
+        'title': title??'',
+        'firstName': firstName??'',
+        'lastName': lastName??'',        
         'description': description??'',
         'imageUrl': imageUrl??'',
         'createdBy': createdBy??'',
@@ -86,7 +94,7 @@ class DBDealModel {
   factory DBDealModel.fromJson(Map<String, dynamic> json) {
     return DBDealModel(
       id: json['id'] ?? '',
-      name: json['name'] ?? '',
+      title: json['title'] ?? '',
       description: json['description'] ?? '',
       imageUrl: json['imageUrl'] ?? '',   
       createdBy: json['createdBy'] ?? '',   
@@ -103,7 +111,7 @@ class DBDealModel {
   Map<String, dynamic> toJson()  {
     return {
         'id': id,
-        'name': name??'',
+        'title': title??'',
         'description': description??'',
         'imageUrl': imageUrl??'',
         'createdBy': createdBy??'',

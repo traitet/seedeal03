@@ -1,50 +1,35 @@
 {
   "project_info": {
-    "project_number": "167066915127",
-    "firebase_url": "https://hellotest06-88fae.firebaseio.com",
-    "project_id": "hellotest06-88fae",
-    "storage_bucket": "hellotest06-88fae.appspot.com"
+    "project_number": "58855856248",
+    "firebase_url": "https://seedeal03.firebaseio.com",
+    "project_id": "seedeal03",
+    "storage_bucket": "seedeal03.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:167066915127:android:f3e39c898f93aee06a4ab2",
+        "mobilesdk_app_id": "1:58855856248:android:92590a08225bdae0f3358d",
         "android_client_info": {
-          "package_name": "com.example.hellotest06"
+          "package_name": "com.example.seedeal03"
         }
       },
       "oauth_client": [
         {
-          "client_id": "167066915127-8rvvk0a3bfg2qpqd552e66s7h4ofu2q9.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.hellotest06",
-            "certificate_hash": "9d7dc21a7650dad767ae9c28cc2da367579cab32"
-          }
-        },
-        {
-          "client_id": "167066915127-2985p4f6fv7ujj278j7nkl6mcms9sc5h.apps.googleusercontent.com",
+          "client_id": "58855856248-kl0jn9esjpns6dq597q171sf389a2lg1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDX69xghbdhmzsCXEwpNHsWdUDTAyhKehU"
+          "current_key": "AIzaSyBkUW_UB9cTTM2P4wltqJABNyM5S09_Cao"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "167066915127-u5ui355ear55oilpacqbahgtmup4hfr9.apps.googleusercontent.com",
+              "client_id": "58855856248-kl0jn9esjpns6dq597q171sf389a2lg1.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "167066915127-l3r734ligj59t66hhhs23nmbk5lkb8oi.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.hellotest06"
-              }
             }
           ]
         }

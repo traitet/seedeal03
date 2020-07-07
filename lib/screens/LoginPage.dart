@@ -79,7 +79,8 @@ class _LoginPageState extends State<LoginPage> {
 // TEXT: WELCOME
 //==========================================================================
                 // Image(image: AssetImage('assets/images/welcome.JPG')),
-                FadeInImage.assetNetwork(placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/welcome.JPG?alt=media&token=ac57c446-c4aa-4e81-89b9-48d937e671f4'),
+              //FadeInImage.assetNetwork(fit: BoxFit.fill,placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/seedeal03.appspot.com/o/top3.PNG?alt=media&token=6b82ffc7-7d22-49c8-81aa-56940e869ea2'),
+              FadeInImage.assetNetwork(placeholder: 'assets/images/loading.gif', image: 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/welcome.JPG?alt=media&token=ac57c446-c4aa-4e81-89b9-48d937e671f4'),
 
 //==========================================================================
 // TEXT: JOIN US

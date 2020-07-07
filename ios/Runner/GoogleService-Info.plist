@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>167066915127-l3r734ligj59t66hhhs23nmbk5lkb8oi.apps.googleusercontent.com</string>
+	<string>58855856248-ksl7m5bvvkungc7md5mths6esqjc9det.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.167066915127-l3r734ligj59t66hhhs23nmbk5lkb8oi</string>
+	<string>com.googleusercontent.apps.58855856248-ksl7m5bvvkungc7md5mths6esqjc9det</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>167066915127-8rvvk0a3bfg2qpqd552e66s7h4ofu2q9.apps.googleusercontent.com</string>
+	<string>58855856248-kgtgrbiapvf4dvqerjpfk9ltahm9l24i.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC-QD5RBtTi-YdOIgqUZZee-rHp8QrKqVo</string>
+	<string>AIzaSyB3BhYv2IXSzsGyB22yr3kFJzUz5cFr3aQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>167066915127</string>
+	<string>58855856248</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.hellotest06</string>
+	<string>com.example.seedeal03</string>
 	<key>PROJECT_ID</key>
-	<string>hellotest06-88fae</string>
+	<string>seedeal03</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hellotest06-88fae.appspot.com</string>
+	<string>seedeal03.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:167066915127:ios:97c7a109aea798e16a4ab2</string>
+	<string>1:58855856248:ios:8c196e012effea6cf3358d</string>
 	<key>DATABASE_URL</key>
-	<string>https://hellotest06-88fae.firebaseio.com</string>
+	<string>https://seedeal03.firebaseio.com</string>
 </dict>
 </plist>

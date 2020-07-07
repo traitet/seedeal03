@@ -46,8 +46,8 @@ android {
 //=====================================================================================
 // FIREBASE: EDIT TO BE SAME APP CREATED ON FIREBASE WEBSITE
 //=====================================================================================        
-        applicationId "com.example.hellotest06"
-        // applicationId "com.example.seedeal03"
+        //applicationId "com.example.hellotest06"
+        applicationId "com.example.seedeal03"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()

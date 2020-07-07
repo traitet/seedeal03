@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:seedeal03/widgets/LoadingWidget.dart';
 import '../singletons/GlobalAppData.dart';
 import '../models/DBDealModel.dart';
 import '../services/LoggerService.dart';
@@ -35,13 +36,7 @@ class _DealPostPageState extends State<DealPostPage> {
   final imagePicker = ImagePicker(); 
   PickedFile _pickedFile;
   String _uploadedFileURL = ''; 
-  // bool _isLoading = false;  
-
-//==========================================================================
-// BUILD WIDGET
-//==========================================================================  
-  @override
-  Widget build(BuildContext context) {
+  bool _isLoading = false;  
 //==========================================================================
 // DECLARE VARIABLE
 //==========================================================================     
@@ -56,7 +51,14 @@ class _DealPostPageState extends State<DealPostPage> {
     final emailController = TextEditingController()..text = 'traitet@gmail.com';         
     final mobileController = TextEditingController()..text = '085-6000606';      
     final lineIdController = TextEditingController()..text = 'traitetgmail';                
-    final imageUrlController = TextEditingController()..text = 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/hotel05.JPG?alt=media&token=355b944f-5b70-4c83-baa8-e2293fe438fb';       
+    //final imageUrlController = TextEditingController()..text = 'https://firebasestorage.googleapis.com/v0/b/hellotest06-88fae.appspot.com/o/hotel05.JPG?alt=media&token=355b944f-5b70-4c83-baa8-e2293fe438fb';      
+
+//==========================================================================
+// BUILD WIDGET
+//==========================================================================  
+  @override
+  Widget build(BuildContext context) {
+   
 //==========================================================================
 // RETURN MATERIAL APP
 //==========================================================================  
@@ -152,52 +154,70 @@ class _DealPostPageState extends State<DealPostPage> {
 //==========================================================================                 
             Padding(padding: const EdgeInsets.all(8),child: Text('Owner Detail (ผู้ประกาศ) ',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold, color: Colors.white)),),                    
             TextFieldPostDealWidget(text: '*Name', icon: Icons.person,controller: firstNameController,),
-            TextFieldPostDealWidget(text: 'Lastname', icon: Icons.person,controller: lastNameController,),      
-            TextFieldPostDealWidget(text: 'E-mail', icon: Icons.phone,controller: emailController,),                      
+            TextFieldPostDealWidget(text: 'Lastname', icon: Icons.people,controller: lastNameController,),      
+            TextFieldPostDealWidget(text: 'E-mail', icon: Icons.email,controller: emailController,),                      
             TextFieldPostDealWidget(text: 'Mobile', icon: Icons.phone,controller: mobileController,),    
             TextFieldPostDealWidget(text: 'Line ID', icon: Icons.line_style,controller: lineIdController,),        
             Padding(padding: const EdgeInsets.all(8),child: Text('Image (รูปถ่าย) ',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold, color: Colors.white)),),                                  
-            TextFieldPostDealWidget(text: 'Image', icon: Icons.recent_actors,controller: imageUrlController,),   
-            SizedBox(height: 24),              
-//==========================================================================
-// BUTTON
-//==========================================================================      
-            ButtonBarWidget(onPressed: () async {      
-//==========================================================================
-// UPLOAD FILE
-//==========================================================================  
-                  if (_pickedFile != null){await fnUploadFile();}              
-//==========================================================================
-// CALL SERVICE: SET DATA TO FIREBASE
-//==========================================================================               
-                  DealService.setDeal(
-                    context,
-                    DBDealModel(
-                      name: titleController.text,
-                      description: descriptionController.text,
-                      price: double.parse(priceController.text),                      
-                      createdBy: globalAppData.email,                      
-                      imageUrl: _uploadedFileURL,
-                      lineId: lineIdController.text,
-                      mobile: mobileController.text,
-                      docType: 'HOTEL',
-                    )
-                  );
-            },splashColor: Colors.pink,text: "Save",),  
+            //TextFieldPostDealWidget(text: 'Image', icon: Icons.recent_actors,controller: imageUrlController,),     
 //================================================================================
 // BUILD WIDGET IMAGE AND TEXT (1) UPLOAD 2) GOOGLE 3) WRONG URL
 //================================================================================
-            SizedBox(height: 16,),
-            _pickedFile != null ? 
-              Image.asset(_pickedFile.path,height: 200,):
-              Container(
-                alignment: Alignment.center,
-                child: Text('Please select image from a top button',style: TextStyle(fontSize: 16),)),
+            SizedBox(height: 12,),
+            _pickedFile != null ? Image.asset(_pickedFile.path,fit: BoxFit.cover,):Container(alignment: Alignment.center,child: Text('Please select image from a top button',style: TextStyle(fontSize: 16,color: Colors.white),)),                      
+
+//==========================================================================
+// LOADING
+//========================================================================== 
+            LoadingWidget(isLoading: _isLoading,),
+//==========================================================================
+// BUTTON
+//========================================================================== 
+            SizedBox(height: 12,),     
+            ButtonBarWidget(
+              onPressed: () {fnPostDealSave();},
+              splashColor: Colors.pink,
+              text: "Save",),  
           ],),
         ),
       ),
     );
   }
+
+//==========================================================================
+// FUNCTION SAVE POST DEAL
+//========================================================================== 
+  Future fnPostDealSave() async {
+    // setState(() {_isLoading = true;});
+//==========================================================================
+// UPLOAD FILE
+//==========================================================================  
+    if (_pickedFile != null){await fnUploadFile().catchError((){
+      // setState(() {_isLoading = false;});
+    });}              
+//==========================================================================
+// CALL SERVICE: SET DATA TO FIREBASE
+//==========================================================================               
+    DealService.setDeal( context,
+      DBDealModel(
+        title: titleController.text,
+        firstName: firstNameController.text,
+        lastName: lastNameController.text,
+        description: descriptionController.text,
+        price: double.parse(priceController.text),                      
+        createdBy: globalAppData.email,                      
+        imageUrl: _uploadedFileURL,
+        lineId: lineIdController.text,
+        mobile: mobileController.text,
+        docType: 'HOTEL',
+      )
+    ).whenComplete(() {
+          // setState(() {_isLoading = false;});
+    });
+    // setState(() {_isLoading = false;});
+  }
+
+
 
 //==========================================================================
 // GET IMAGE FROM CAMERA
@@ -212,9 +232,7 @@ class _DealPostPageState extends State<DealPostPage> {
 //==========================================================================    
   Future getImageFromGallery() async {
       imagePicker.getImage(source: ImageSource.gallery).then((value) {
-           setState(() {
-             _pickedFile = value;});   
-      }).catchError((error){
+           setState(() {_pickedFile = value;}); }).catchError((error){
 
       }).whenComplete((){
       });}
