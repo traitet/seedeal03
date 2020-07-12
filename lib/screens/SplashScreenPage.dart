@@ -14,7 +14,6 @@ class SplashScreenPage extends StatefulWidget {
   _SplashScreenPageState createState() => new _SplashScreenPageState();
 }
 
-
 //==========================================================================
 // STATE CLASS
 //==========================================================================

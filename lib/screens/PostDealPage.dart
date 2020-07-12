@@ -34,7 +34,7 @@ class _PostDealPageState extends State<PostDealPage> {
 //==========================================================================          
           title: Title(color: Colors.blue, child: Text('เพิ่มรายการ')),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.undo), onPressed: (){},),
+            // IconButton(icon: Icon(Icons.undo), onPressed: (){},),
             IconButton(icon: Icon(Icons.save), onPressed: (){},)    
           ],
 //==========================================================================
@@ -86,12 +86,6 @@ class TabAddImage extends StatelessWidget {
         }, child: Text('คลิ๊กที่นี่เพื่อเพิ่มรูปภาพ', style: TextStyle(fontSize: 20)),));
   }
 }
-
-
-
-
-
-
 
 //*******************************************************************************************************************************
 // CLASS

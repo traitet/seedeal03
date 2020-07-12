@@ -72,7 +72,9 @@ class MyApp extends StatelessWidget {
 //==========================================================================
 // HOME
 //==========================================================================      
-      home: MyHomePage(title: 'S E E D E L  0 3 / 12.07.2020 '),
+      home: 
+      SplashScreenPage(),
+      // MyHomePage(title: 'S E E D E L  0 3 / 12.07.2020 '),
       // routes: <String, WidgetBuilder>{
       // '/LoginPage': (BuildContext context) => LoginPage(),
       // },
