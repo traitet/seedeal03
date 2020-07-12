@@ -1,8 +1,11 @@
 //==========================================================================
 // IMPORT
 //==========================================================================
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import '../widgets/TabPostAddImageWidget.dart';
+import '../widgets/TabPostAddDetailWidget.dart';
+import '../widgets/TabPostContactWidget.dart';
+import '../widgets/TabPostDeliveryWidget.dart';
 
 //==========================================================================
 // MAIN CLASS
@@ -51,26 +54,11 @@ class _PostDealPageState extends State<PostDealPage> {
 // Tab#1) Add Imaage
 //==========================================================================  
         // tabIndex == 0 ? TabPostAddImageWidget():
-        tabIndex == 1 ? TabAddDetail():
-        tabIndex == 2 ? TabAddContact():      
-        tabIndex == 3 ? TabAddDelivery(): 
+        tabIndex == 1 ? TabPostAddDetailWidget():
+        tabIndex == 2 ? TabPostContactWidget():      
+        tabIndex == 3 ? TabPostDeliveryWidget(): 
         Container(),    
 
-//==========================================================================
-// BOTTOM BUTTON
-//==========================================================================                 
-        //   tabIndex != 0 ? Container(
-        //     child: Row(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: <Widget>[
-        //       Expanded(child: Container(padding: EdgeInsets.all(2),child: RaisedButton(color: Colors.blue[900],onPressed: (){}, child: Text('บันทึก',style: TextStyle(color: Colors.white)),))),
-        //       Expanded(child: Container(padding: EdgeInsets.all(2),child: RaisedButton(color: Colors.blue[900],onPressed: (){}, child: Text('ประกาศ',style: TextStyle(color: Colors.white)),))),
-        //       Expanded(child: Container(padding: EdgeInsets.all(2),child: RaisedButton(color: Colors.blue[900],onPressed: (){}, child: Text('ดูโพสต์',style: TextStyle(color: Colors.white)),))),               
-                  
-        //     ],),
-        //   ):Container(),
-        // ],)
-        
         ),
         
     );
@@ -99,54 +87,6 @@ class TabAddImage extends StatelessWidget {
   }
 }
 
-
-
-//==========================================================================
-// TAB:1 ADD DETAIL
-//==========================================================================
-class TabAddDetail extends StatelessWidget {
-  const TabAddDetail({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-    
-    
-    Text('TabAddDetail',style: TextStyle(color: Colors.black),);
-  }
-}
-
-//==========================================================================
-// TAB:0 ADD IMAGE
-//==========================================================================
-class TabAddContact extends StatelessWidget {
-  const TabAddContact({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return     
-    Text('TabAddContact',style: TextStyle(color: Colors.black),);
-  }
-}
-
-//==========================================================================
-// TAB:0 ADD IMAGE
-//==========================================================================
-class TabAddDelivery extends StatelessWidget {
-  const TabAddDelivery({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-    Text('TabAddDelivery',style: TextStyle(color: Colors.black),);
-  }
-}
 
 
 
