@@ -2,6 +2,7 @@
 // IMPORT
 //==========================================================================
 import 'package:flutter/material.dart';
+import 'package:seedeal03/screens/SplashScreenPage.dart';
 import './screens/HomePage.dart';
 import './screens/LoginPage.dart';
 import './screens/SignUpPage.dart';
@@ -9,6 +10,7 @@ import './screens/LoginByEmailPage.dart';
 import './services/FirebaseAuthenService.dart';
 import './screens/DealPostPage.dart';
 import './screens/SingleUploadImagePage.dart';
+import './screens/SplashScreenPage.dart';
 // import './screens/LoginFirebaseEmailPage.dart';
 // import './screens/MyResetPasswordPage.dart';
 // import '../screens/ProfilePage.dart';
@@ -70,7 +72,7 @@ class MyApp extends StatelessWidget {
 //==========================================================================
 // HOME
 //==========================================================================      
-      home: MyHomePage(title: 'S E E D E L  0 3 / 05.07.2020 '),
+      home: MyHomePage(title: 'S E E D E L  0 3 / 12.07.2020 '),
       // routes: <String, WidgetBuilder>{
       // '/LoginPage': (BuildContext context) => LoginPage(),
       // },
@@ -123,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
 // RAISED BUTTON
 //========================================================================== 
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);}, child: Text('Home Page'),), 
+            RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreenPage()),);}, child: Text('Splash Screen'),),             
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);}, child: Text('Login '),),               
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => LogInByEmailPage()),);}, child: Text('Sign-in by E-mail'),),   
             RaisedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);}, child: Text('Sign Up'),),      
