@@ -4,14 +4,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/DBDealModel.dart';
-// import '../services/ShowNotiService.dart';
-import '../services/LoggerService.dart';
+import '../services/ShowNotiService.dart';
+import 'LoggerService.dart';
 
 
 //==========================================================================
 // FUNCTION
 //==========================================================================
-Future<void> setDeal(BuildContext context,DBDealModel dBDealModel) async {
+Future<void> setDeal(BuildContext context,DBDealModel dealModel){
 //==========================================================================
 // RETURN
 //==========================================================================     
@@ -19,11 +19,11 @@ Future<void> setDeal(BuildContext context,DBDealModel dBDealModel) async {
 //==========================================================================
 // SAVE DATA TO FIREBASE
 //==========================================================================     
-    Firestore.instance.collection("TT_DEAL").document().setData(dBDealModel.toFileStore()).then((returnData) {
+    Firestore.instance.collection("TT_POSTITEM").document().setData(dealModel.toFileStore()).then((returnData) {
 //==========================================================================
 // SHOW MESSAGEBOX (SUCCESS)
 //==========================================================================      
-    //showMessageBox(context, "success", "Register completely", actions: [dismissButton(context)]);   
+    showMessageBox(context, "success", "Register completely", actions: [dismissButton(context)]);   
     logger.i("setData Success");
 //==========================================================================
 // CATCH ERROR

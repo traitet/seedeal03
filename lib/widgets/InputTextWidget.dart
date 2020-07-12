@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 //==========================================================================
 // SELECTOR WIEGET
 //==========================================================================  
-class InputCurrencyWidget extends StatelessWidget {
+class InputTextWidget extends StatelessWidget {
 //==========================================================================
 // PROPERTY
 //==========================================================================       
@@ -20,7 +20,7 @@ class InputCurrencyWidget extends StatelessWidget {
 //==========================================================================
 // CONSTRUCTURE
 //==========================================================================     
-  const InputCurrencyWidget({
+  const InputTextWidget({
     this.title,
     this.price,
     this.controller,
@@ -48,7 +48,7 @@ class InputCurrencyWidget extends StatelessWidget {
             child: TextFormField(
               textAlign: TextAlign.right,
               controller: controller, 
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 border: null,
                 filled: true,
